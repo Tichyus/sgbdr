@@ -10,7 +10,7 @@
                 <input @change="updatelimit" v-model="limitTemp" :placeholder="limitTemp">
             </div>
             <div>
-                Filter by :
+                Sort by :
                 <select @change="setFilter" v-model="selected">
                     <option v-for="option in options" v-bind:value="option.value">
                         {{ option.text }}
