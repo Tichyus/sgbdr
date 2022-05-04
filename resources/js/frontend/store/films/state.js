@@ -1,5 +1,5 @@
 export default {
-  orderBy: 'query1.title asc',
+  orderBy: 'title',
   limit: 10,
   offset: 0,
   result: [],

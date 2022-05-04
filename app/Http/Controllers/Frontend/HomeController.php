@@ -24,7 +24,7 @@ class HomeController extends Controller
      * @param String $order
      * @param String $limit
      * @param String $offset
-     * 
+     *
      * @return \Illuminate\Support\Collection
      */
     public function getFilms(Request $request)
@@ -41,14 +41,14 @@ class HomeController extends Controller
                 JOIN category AS c ON c.category_id = fa.category_id
                 ) query1
             LEFT JOIN
-                (SELECT count(*) AS count, f.title 
-                FROM rental AS r 
+                (SELECT count(*) AS count, f.title
+                FROM rental AS r
                 JOIN inventory AS i ON r.inventory_id = i.inventory_id
                 JOIN film AS f ON f.film_id = i.film_id
                 GROUP BY f.title) query2
             ON query1.title = query2.title
-            ORDER BY '.$orderBy.'
-            LIMIT '.$limit.' 
+            ORDER BY '."query1.".$orderBy." asc".'
+            LIMIT '.$limit.'
             OFFSET '.$offset
         ;
 

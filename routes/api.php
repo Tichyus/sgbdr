@@ -14,5 +14,5 @@ use App\Http\Controllers\Frontend\HomeController;
 |
 */
 
-Route::get('/films', [HomeController::class, 'getFilms']);
+Route::get('/listFilms', [HomeController::class, 'getFilms']);
 

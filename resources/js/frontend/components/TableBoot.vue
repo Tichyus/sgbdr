@@ -35,7 +35,6 @@ export default {
             options: [
                 { text: 'Title', value: 'A' },
                 { text: 'Rating', value: 'B' },
-                { text: 'Rental', value: 'C' }
             ]
         }
     },
@@ -74,26 +73,22 @@ export default {
             if (this.selected === 'A') {
                 this.sortByTitle();
             }
-            else if (this.selected === 'B') {
+            else{
                 this.sortByGenre()
-            }
-            else {
-                this.sortByRental();
             }
         },
 
         sortByTitle(){
-            this.orderBy == 'query1.title asc' ?
-                this[SET_ORDER_BY]('query1.title desc') :
-                this[SET_ORDER_BY]('query1.title asc');
+            // this.orderBy == 'query1.title asc'
+            this[SET_ORDER_BY]('title')
 
             this.setFilms();
         },
 
         sortByGenre(){
-            this.orderBy == 'query1.name asc' ?
-                this[SET_ORDER_BY]('query1.rating desc') :
-                this[SET_ORDER_BY]('query1.rating asc');
+            // this.orderBy == 'query1.name asc' ?
+            this[SET_ORDER_BY]('rating')
+                // this[SET_ORDER_BY]('query1.rating asc');
 
             this.setFilms();
         },
