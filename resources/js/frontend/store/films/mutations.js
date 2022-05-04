@@ -17,7 +17,7 @@ export default {
   },
 
   [SET_OFFSET](state, value) {
-    state.offset = value +1;
+    state.offset = value;
   },
 
   [SET_RESULT](state, value) {

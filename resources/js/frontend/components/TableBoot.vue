@@ -1,9 +1,13 @@
 <template>
     <div>
-        <div class="flex column justify-content-between">
+        <div class="d-flex justify-content-between" style="margin-bottom: 2rem">
             <div><button @click="offsetDown">Previous</button>
                 <span>{{ currentPage }} / {{ totalPages }}</span>
                 <button @click="offsetUp">Next</button>
+            </div>
+            <div>
+                Per page :
+                <input @change="updatelimit" v-model="limitTemp" :placeholder="limitTemp">
             </div>
             <div>
                 Filter by :
@@ -26,6 +30,7 @@ export default {
     name: "TableBoot",
     data() {
         return {
+            limitTemp: 10,
             selected: 'A',
             options: [
                 { text: 'Title', value: 'A' },
@@ -56,6 +61,13 @@ export default {
 
         async setFilms() {
             return await this.getFilms();
+        },
+
+        updatelimit(){
+            this[SET_LIMIT](parseInt(this.limitTemp));
+            this[SET_OFFSET](0);
+
+            this.getFilms();
         },
 
         setFilter() {
